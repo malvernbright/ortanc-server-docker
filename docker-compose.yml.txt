@@ -1,0 +1,24 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=orthanc
+      - POSTGRES_PASSWORD=your_password
+      - POSTGRES_DB=orthanc
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  orthanc:
+    container_name: orthanc_server
+    build: .
+    ports:
+      - "8042:8042"
+    depends_on:
+      - postgres
+    environment:
+      - ORTHANC_DB_HOST=postgres
+      - ORTHANC_DB_USERNAME=orthanc
+      - ORTHANC_DB_PASSWORD=your_password
+      - ORTHANC_DB_NAME=orthanc
+volumes:
+  postgres_data:

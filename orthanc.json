@@ -1,0 +1,6 @@
+{
+  "Name": "ORTHANC",
+  "RemoteAccessAllowed": true,
+  "Description": "My Orthanc server",
+  "DicomAet": "Orthanc Server"
+}

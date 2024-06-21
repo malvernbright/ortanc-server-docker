@@ -1,0 +1,22 @@
+{
+    "Name": "${ORTHANC_NAME} in Docker Compose",
+    "RemoteAccessAllowed": true,
+    "Description": "${ORTHANC_AE_DESCRIPTION}",
+    "DicomAet": "${ORTHANC_AE_TITLE}",
+    "DicomServer": {
+      "Enable": true,
+      "Port": 4242,
+      "AETitle": "${ORTHANC_AE_TITLE}",
+      "MaxAssociations": 10
+    },
+    "PostgreSQL": {
+      "EnableIndex": true,
+      "EnableStorage": true,
+      "Host": "127.0.0.1",
+      "Port": 5432,
+      "Database": "orthanc",
+      "Username": "postgres",
+      "Password": "pgpassword"
+    }
+  }
+  

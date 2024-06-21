@@ -1,0 +1,17 @@
+services:
+  orthanc:
+    image: jodogne/orthanc-plugins:1.12.4
+    command: /run/secrets/  # Path to the configuration files (stored as secrets)
+    container_name: orthanc_server
+    ports:
+      - 4242:4242
+      - 8042:8042
+    secrets:
+      - orthanc.json
+    environment:
+      - ORTHANC_NAME=ORTHANC
+      - ORTHANC_AE_TITLE="Orthanc Server"
+      - ORTHANC_AE_DESCRIPTION="My Orthanc server"
+secrets:
+  orthanc.json:
+    file: orthanc.json
